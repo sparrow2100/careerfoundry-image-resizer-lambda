@@ -38,7 +38,7 @@ exports.handler = async function (event, context) {
     // make the data readable (stream --> buffer)
 
     const streamToBuffer = (stream) => {
-      new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         const chunks = [];
         stream.on("data", (chunk) => chunks.push(chunk));
         stream.on("end", () => resolve(Buffer.concat(chunks)));
